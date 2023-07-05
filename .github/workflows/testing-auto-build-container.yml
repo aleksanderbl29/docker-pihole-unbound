@@ -1,0 +1,78 @@
+name: Build test container and release
+
+on:
+  pull_request:
+
+permissions:
+  contents: write
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Get todays date
+      id: date
+      run: echo ::set-output name=date::$(date +'%Y-%m-%d')
+
+    - name: Get latest release of pihole docker container
+      id: latest_release
+      env:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        repository: "pi-hole/docker-pi-hole"
+        type: "stable"
+      run: echo release=$(curl --silent "https://api.github.com/repos/pi-hole/docker-pi-hole/releases/latest" | jq -r '.tag_name') >> $GITHUB_OUTPUT
+
+    - name: Get previous release tag
+      id: previous_release
+      env:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        repository: "aleksanderbl29/docker-pihole-unbound"
+        type: "stable"
+      run: echo release=$(curl --silent "https://api.github.com/repos/aleksanderbl29/docker-pihole-unbound/releases/latest" | jq -r '.tag_name' ) >> $GITHUB_OUTPUT
+
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v2
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+
+    - name: Login to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKER_HUB_USERNAME }}
+        password: ${{ secrets.DOCKER_HUB_TOKEN }}
+
+    - name: Build and push
+      uses: docker/build-push-action@v4
+      with:
+        build-args: PIHOLE_VERSION=${{ steps.latest_release.outputs.release }}
+        context: "{{defaultContext}}:pihole-unbound/"
+        platforms: linux/arm/v7,linux/arm64/v8,linux/amd64
+        push: true
+        tags: aleksanderbl/pihole-unbound:latest,aleksanderbl/pihole-unbound:testing-${{ steps.date.outputs.date }}
+
+    - name: Dev release
+      id: dev_release
+      run: echo ::set-output name=release::testing-${{ steps.date.outputs.date }}
+
+    - name: Create release
+      uses: softprops/action-gh-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ steps.dev_release.outputs.dev_release }}
+        name: "${{ steps.dev_release.outputs.dev_release }}"
+        body: |
+          NOTE: THIS IS A DEV REALSE - USE AT YOUR OWN RISK - NO SUPPORT WILL BE PROVIDED
+          FOR TESTING ONLY
+
+          Changelog found on [pi-hole github](https://github.com/pi-hole/docker-pi-hole/releases), please read the changes before updating.
+          You can update the docker image with:
+          ```
+          docker compose pull
+          docker compose up -d
+          ```

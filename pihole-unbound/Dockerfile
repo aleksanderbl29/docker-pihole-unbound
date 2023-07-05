@@ -9,3 +9,8 @@ RUN mkdir -p /etc/services.d/unbound
 COPY unbound-run /etc/services.d/unbound/run
 
 ENTRYPOINT ./s6-init
+
+ENV WEBTHEME=default-auto
+ENV REV_SERVER=false
+ENV PIHOLE_DNS=127.0.0.1#5335;1.1.1.1;9.9.9.9
+ENV DNSSEC=true

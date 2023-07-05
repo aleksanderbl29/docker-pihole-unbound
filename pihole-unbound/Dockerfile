@@ -10,7 +10,7 @@ COPY unbound-run /etc/services.d/unbound/run
 
 ENTRYPOINT ./s6-init
 
-## This is my preferred configuration
+## This is my preferred configuration - Please open a PR if some of it is not universally compatible
 ENV WEBTHEME=default-auto
 ENV REV_SERVER=false
 ENV PIHOLE_DNS=127.0.0.1#5335;1.1.1.1;9.9.9.9

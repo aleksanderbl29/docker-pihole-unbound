@@ -88,4 +88,100 @@ I have setup a Github Aciton that runs on all pull requests that builds and publ
 Thank you to all contributors for help making this project better.
 
 <!-- readme: contributors -start -->
+<table>
+<tr>
+    <td align="center">
+        <a href="https://github.com/aleksanderbl29">
+            <img src="https://avatars.githubusercontent.com/u/73799306?v=4" width="100;" alt="aleksanderbl29"/>
+            <br />
+            <sub><b>Aleksander Bang-Larsen</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/chriscrowe">
+            <img src="https://avatars.githubusercontent.com/u/425808?v=4" width="100;" alt="chriscrowe"/>
+            <br />
+            <sub><b>Chris Crowe</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/ChevySSinSD">
+            <img src="https://avatars.githubusercontent.com/u/47265616?v=4" width="100;" alt="ChevySSinSD"/>
+            <br />
+            <sub><b>Null</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/xaabi6">
+            <img src="https://avatars.githubusercontent.com/u/22637294?v=4" width="100;" alt="xaabi6"/>
+            <br />
+            <sub><b>Xabi</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/chronicblondiee">
+            <img src="https://avatars.githubusercontent.com/u/17150999?v=4" width="100;" alt="chronicblondiee"/>
+            <br />
+            <sub><b>Chronicblondiee</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/PromoFaux">
+            <img src="https://avatars.githubusercontent.com/u/1998970?v=4" width="100;" alt="PromoFaux"/>
+            <br />
+            <sub><b>Adam Warner</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
+        <a href="https://github.com/dszymczuk">
+            <img src="https://avatars.githubusercontent.com/u/539352?v=4" width="100;" alt="dszymczuk"/>
+            <br />
+            <sub><b>Damian Szymczuk</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/gramsaran">
+            <img src="https://avatars.githubusercontent.com/u/356823?v=4" width="100;" alt="gramsaran"/>
+            <br />
+            <sub><b>Greg Ramsaran</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Sinnohd">
+            <img src="https://avatars.githubusercontent.com/u/2531453?v=4" width="100;" alt="Sinnohd"/>
+            <br />
+            <sub><b>Jens Brey</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/LawnMo">
+            <img src="https://avatars.githubusercontent.com/u/81721212?v=4" width="100;" alt="LawnMo"/>
+            <br />
+            <sub><b>Null</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/MaHl111">
+            <img src="https://avatars.githubusercontent.com/u/48538049?v=4" width="100;" alt="MaHl111"/>
+            <br />
+            <sub><b>Null</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/TheOftedal">
+            <img src="https://avatars.githubusercontent.com/u/78422637?v=4" width="100;" alt="TheOftedal"/>
+            <br />
+            <sub><b>Mats Oftedal</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
+        <a href="https://github.com/ZSamuels28">
+            <img src="https://avatars.githubusercontent.com/u/8294014?v=4" width="100;" alt="ZSamuels28"/>
+            <br />
+            <sub><b>Null</b></sub>
+        </a>
+    </td></tr>
+</table>
 <!-- readme: contributors -end -->

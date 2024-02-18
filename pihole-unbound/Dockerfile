@@ -1,6 +1,6 @@
 FROM pihole/pihole:2024.02.0
-RUN echo "deb http://deb.debian.org/debian bullseye-backports main" >> /etc/apt/sources.list
-RUN apt-get update && apt-get -t bullseye-backports install -y unbound
+RUN echo "deb http://deb.debian.org/debian sid main" >> /etc/apt/sources.list
+RUN apt-get update && apt-get -t sid install -y unbound
 
 COPY lighttpd-external.conf /etc/lighttpd/external.conf
 COPY unbound-pihole.conf /etc/unbound/unbound.conf.d/pi-hole.conf

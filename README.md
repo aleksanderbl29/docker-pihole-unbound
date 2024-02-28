@@ -14,7 +14,7 @@
 
 This image is regularly update with the latest release from the official pi-hole image.
 
-Whenever there is an update for the [original pihole image](https://hub.docker.com/r/pihole/pihole) a Github Action publishes an update for this image with the new image.
+Whenever there is an update for the [original pihole image](https://hub.docker.com/r/pihole/pihole) an automatic pull request is opened to implemented the update and I do my best to merge the updates quickly.
 
 The workflow file for this can be found in `.github/workflows/auto-build-container.yml`
 

@@ -3,6 +3,9 @@ name: Build and publish container in development
 
 on:
   # cron job to trigger the build on any push to main
+  push:
+    branches:
+      - '!main'
   pull_request:
     types: [opened, synchronize, reopened]
 
@@ -35,10 +38,14 @@ jobs:
       id: date
       run: echo date=$(date +%Y-%m-%d) >> $GITHUB_OUTPUT
 
+    - name: Get branch name
+      id: branch
+      run: echo branch=$(echo ${{ github.ref }} | sed 's/refs\/heads\///') >> $GITHUB_OUTPUT
+
     - name: Build and push
       uses: docker/build-push-action@v5
       with:
         context: "{{defaultContext}}:pihole-unbound/"
         platforms: linux/arm/v7,linux/arm64/v8,linux/amd64
         push: true
-        tags: aleksanderbl/pihole-unbound:dev-pr-${{ github.event.number }}-${{ steps.date.outputs.date }}
+        tags: aleksanderbl/pihole-unbound:dev-${{ github.event.number }}-${{ steps.date.outputs.date }}-${{ steps.branch.outputs.branch }}

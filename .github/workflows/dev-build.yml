@@ -48,4 +48,4 @@ jobs:
         context: "{{defaultContext}}:pihole-unbound/"
         platforms: linux/arm/v7,linux/arm64/v8,linux/amd64
         push: true
-        tags: aleksanderbl/pihole-unbound:dev-${{ github.event.number }}-${{ steps.date.outputs.date }}
+        tags: aleksanderbl/pihole-unbound:dev-${{ github.event.number }}-${{ steps.date.outputs.date }},aleksanderbl/pihole-unbound:dev-${{ github.event.number }}

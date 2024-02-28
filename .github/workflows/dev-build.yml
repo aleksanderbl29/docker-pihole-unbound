@@ -4,8 +4,6 @@ name: Build and publish container in development
 on:
   # cron job to trigger the build on any push to main
   pull_request:
-    branches:
-      - main
     types: [opened, synchronize, reopened]
 
 permissions:

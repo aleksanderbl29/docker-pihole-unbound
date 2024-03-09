@@ -14,7 +14,7 @@
 
 This image is regularly update with the latest release from the official pi-hole image.
 
-Whenever there is an update for the [original pihole image](https://hub.docker.com/r/pihole/pihole) an automatic pull request is opened to implemented the update and I do my best to merge the updates quickly.
+Whenever there is an update for the [original pihole image](https://hub.docker.com/r/pihole/pihole) an automatic pull request is opened to implement the update and I do my best to merge the updates quickly.
 
 The workflow file for this can be found in `.github/workflows/auto-build-container.yml`
 
@@ -50,7 +50,7 @@ Example `.env` file in the same directory as your `docker-compose.yaml` file:
 
 ```env
 FTLCONF_LOCAL_IPV4=192.168.1.10
-TZ=America/Los_Angeles
+TZ=Europe/Copenhagen
 WEBPASSWORD=QWERTY123456asdfASDF
 REV_SERVER=true
 REV_SERVER_DOMAIN=local

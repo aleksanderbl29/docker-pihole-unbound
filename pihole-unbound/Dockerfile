@@ -1,4 +1,4 @@
-FROM pihole/pihole:2024.02.2
+FROM pihole/pihole:2024.03.1
 RUN echo "deb http://deb.debian.org/debian bookworm main" >> /etc/apt/sources.list
 RUN apt-get update && apt-get -t bookworm install -y unbound
 

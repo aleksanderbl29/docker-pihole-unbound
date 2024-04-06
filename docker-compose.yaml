@@ -10,6 +10,7 @@ services:
       - 127.0.0.1
     container_name: pihole
     image: aleksanderbl/pihole-unbound:2024.03.2
+    # image: dev/docker-pihole-unbound:latest
     hostname: ${HOSTNAME}
     domainname: ${DOMAIN_NAME}
     ports:

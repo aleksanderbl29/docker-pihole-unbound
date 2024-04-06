@@ -77,8 +77,7 @@ docker-compose up -d
 - [ ] Run the commands below
 
 ```bash
-cd docker-pihole-unbound
-docker build . -t dev/docker-pihole-unbound:latest
+docker build ./pihole-unbound/ -t dev/docker-pihole-unbound:latest
 ```
 
 ## Automatic dev builds with Github Actions

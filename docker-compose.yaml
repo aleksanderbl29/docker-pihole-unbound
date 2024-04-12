@@ -1,5 +1,4 @@
-version: '3.0'
-
+---
 volumes:
   etc_pihole-unbound:
   etc_pihole_dnsmasq-unbound:

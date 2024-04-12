@@ -1,8 +1,8 @@
 FROM pihole/pihole:2024.03.2
 
-RUN echo "deb http://deb.debian.org/debian sid main" >> /etc/apt/sources.list
+RUN echo "deb http://deb.debian.org/debian trixie main" >> /etc/apt/sources.list
 
-RUN apt-get update && apt-get upgrade -y && apt-get -t sid install -y unbound -V
+RUN apt-get update && apt-get upgrade -y && apt-get -t trixie install -y unbound -V
 
 COPY lighttpd-external.conf /etc/lighttpd/external.conf
 COPY unbound-pihole.conf /etc/unbound/unbound.conf.d/pi-hole.conf

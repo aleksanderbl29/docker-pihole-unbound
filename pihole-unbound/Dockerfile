@@ -3,7 +3,7 @@ FROM pihole/pihole:2024.05.0
 RUN echo "deb http://deb.debian.org/debian sid main" >> /etc/apt/sources.list
 
 RUN apt-get update
-RUN apt-get upgrade -y
+RUN apt-get upgrade -y -V
 RUN apt-get -t sid install -y unbound -V
 
 

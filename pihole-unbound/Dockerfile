@@ -1,11 +1,11 @@
 FROM pihole/pihole:2024.05.0
 
-RUN echo "deb http://deb.debian.org/debian sid main" >> /etc/apt/sources.list
+RUN echo "deb http://deb.debian.org/debian trixie main" >> /etc/apt/sources.list
 
 # RUN apt-get update
 # RUN apt-get upgrade libreadline8 -y
 # RUN apt-get upgrade libreadline8t64 -y
-RUN apt-get -t sid install -y unbound -V
+RUN apt-get -t trixie install -y unbound -V
 
 
 COPY lighttpd-external.conf /etc/lighttpd/external.conf

@@ -25,9 +25,10 @@ This Docker deployment runs both Pi-Hole and Unbound in a single container.
 
 The base image for the container is the [official Pi-Hole container](https://hub.docker.com/r/pihole/pihole), with an extra build step added to install the Unbound resolver directly into to the container based on [instructions provided directly by the Pi-Hole team](https://docs.pi-hole.net/guides/unbound/).
 
-## Usage
-
-First create a `.env` file to substitute variables for your deployment.
+## Setup
+1. Create a directory somewhere to set things up, such as `/opt/docker/pihole-unbound/`.
+2. Download/copy the `docker-compose.yaml` file and put it in this directory.
+3. Create a `.env` file in this directory as well. It will be used to substitute variables for your deployment.
 
 ### Pi-hole environment variables
 
@@ -69,6 +70,21 @@ docker-compose up -d
 ```
 
 > If using Portainer, just paste the `docker-compose.yaml` contents into the stack config and add your *environment variables* directly in the UI.
+
+### Configure Pi-Hole
+1. Open up Pi-Hole's Dashboard (web interface).
+> In your web browser, if you're on the host machine, go to http://127.0.0.1/admin/. To access it from other devices on your local network, replace `127.0.0.1` with the LAN IPv4 of the machine running Pi-Hole.
+2. Open the `Settings` menu and navigate to the `DNS` tab.
+3. Make sure <ins>all</ins> checkboxes in both `Upstream DNS Servers` panels are unchecked.
+4. Check `Custom 1 (IPv4)` and set its value to `127.0.0.1#5335`.
+5. Hit `Save` on the bottom of the page.
+
+You're done! Now, it's up to you to get your network/devices setup to use Pi-Hole.
+
+## Troubleshooting
+
+### Local devices get no/limited internet when using Pi-Hole as DNS.
+Try pinging `google.com` vs pinging `8.8.8.8`. If `google.com` fails but `8.8.8.8` succeeds, the Pi-Hole's "Allow only local requests" under `Settings > DNS > Interface settings` isn't accepting your local devices as local devices. Changing this to "Permit all origins" will solve the issue but may introduce security concerns. The root issue is something you will have to investigate yourself but this will help with troubleshooting why Pi-Hole appeared to "break" your internet.
 
 ## Building the image locally
 

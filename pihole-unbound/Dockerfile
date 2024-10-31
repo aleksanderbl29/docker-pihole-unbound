@@ -1,10 +1,15 @@
-FROM pihole/pihole:2024.07.0
+FROM pihole/pihole:2024.07.0 AS base
 
 RUN echo "deb http://deb.debian.org/debian trixie main" >> /etc/apt/sources.list
 
 RUN apt-get update
+RUN apt-get install -s usrmerge
+
+FROM base
+RUN apt-get update
 # RUN apt-get upgrade -y
 RUN apt-get -t trixie install -y unbound -V
+# RUN apt-get install -y unbound -V
 
 COPY lighttpd-external.conf /etc/lighttpd/external.conf
 COPY unbound-pihole.conf /etc/unbound/unbound.conf.d/pi-hole.conf

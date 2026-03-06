@@ -46,7 +46,7 @@ jobs:
       if: ${{ steps.latest_release.outputs.release != steps.previous_release.outputs.release }}
 
     - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v3
+      uses: docker/setup-buildx-action@v4
       if: ${{ steps.latest_release.outputs.release != steps.previous_release.outputs.release }}
 
     - name: Login to Docker Hub

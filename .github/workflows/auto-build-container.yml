@@ -42,7 +42,7 @@ jobs:
       run: echo release=$(curl --silent "https://api.github.com/repos/aleksanderbl29/docker-pihole-unbound/releases/latest" | jq -r '.tag_name' ) >> $GITHUB_OUTPUT
 
     - name: Set up QEMU
-      uses: docker/setup-qemu-action@v3
+      uses: docker/setup-qemu-action@v4
       if: ${{ steps.latest_release.outputs.release != steps.previous_release.outputs.release }}
 
     - name: Set up Docker Buildx

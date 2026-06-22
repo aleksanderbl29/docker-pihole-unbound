@@ -23,7 +23,7 @@ jobs:
 
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@v6
+      uses: actions/checkout@v7
 
     - name: Get latest release of pihole docker container
       id: latest_release
